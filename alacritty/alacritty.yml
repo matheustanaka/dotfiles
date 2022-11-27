@@ -4,7 +4,7 @@ env:
   TERM: xterm-256color
 
 import:
-  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+ - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
 
 colors:
   cursor:
@@ -49,7 +49,9 @@ cursor:
     shape: Beam
     blinking: On
 
-live_config_reload: true
+shell:
+  program: /usr/bin/zsh
+  args:
+    - --login
 
-mouse_bindings:
-  - { mouse: Middle, action: PasteSelection }
+live_config_reload: true
