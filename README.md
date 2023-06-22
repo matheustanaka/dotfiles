@@ -1,7 +1,11 @@
-# .dotfiles
+# dotfiles
 
-My dev enviroment, I'm still learning about vim and how can I improve my enviroment.
+My Dev enviroment.
 
-# What I'm using? 
+# Technologies
 
-For now, I'm coding with neovim and use alacritty as terminal. I need to install tmux and configure my neovim, but it's still in progress ...
+- [Alacritty](https://github.com/alacritty/alacritty): terminal emulator.
+- [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH): Unix shell.
+- [nvim](https://neovim.io/): Code editor.
+- [tmux](https://github.com/tmux/tmux/wiki): windows manager.
+- [starship](https://starship.rs/): shell prompt.
