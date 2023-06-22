@@ -2,15 +2,29 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
+export PATH="/home/mvthexz/.local/bin:$PATH"
+
+#Intellij path
+export PATH="/home/mvthexz/idea-IU-231.8109.175/bin:$PATH"
+#Java
+export JAVA_HOME=/usr/lib/jvm/java-12-openjdk-amd64
+export ANDROID_HOME=~/Android/Sdk
+export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$PATH:$ANDROID_HOME/tools"
+export PATH="$PATH:$ANDROID_HOME/tools/bin"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
+export PATH="$PATH:`yarn global bin`"
+export PATH="$PATH:/opt/yarn-[2.4.1]/bin"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME=""
-
+# ZSH_THEME="robbyrussell"
 eval "$(starship init zsh)"
 
+# Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
@@ -64,23 +78,17 @@ eval "$(starship init zsh)"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-# $ZSH_CUSTOM/themes/spaceship-prompt
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux)
+plugins=(git zsh-autosuggestions)
 
-unset TMUX
-ZSH_TMUX_AUTOSTART=true
-export TERM="tmux-256color"
+fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
 
-export RPS1="%{$reset_color%}"
-
-source $ZSH/oh-my-zsh.sh
-
+source "$ZSH/oh-my-zsh.sh"
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -94,7 +102,6 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -107,40 +114,19 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# Add ASDF config
+
+alias dev='cd Dev'
+
+alias gm='git commit -m'
+
+alias gp='git push'
+
+alias gs='git status'
+
+source /home/mvthexz/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 . $HOME/.asdf/asdf.sh
 
-export PATH="$HOME/.cargo/bin:$PATH"
-# zsh syntax hightlighting
-source /home/mvthexz/env-config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-### Added by Zinit's installer
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-        print -P "%F{33} %F{34}Installation successful.%f%b" || \
-        print -P "%F{160} The clone has failed.%f%b"
-fi
-
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
-
-### End of Zinit's installer chunk
-zinit light zdharma/fast-syntax-highlighting
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-completions
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. $HOME/.asdf/completions/asdf.bash
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
