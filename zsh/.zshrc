@@ -3,7 +3,10 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="/home/mvthexz/.local/bin:$PATH"
+export PATH="home/mvthexz/.local/bin:$PATH"
+
+# Rust
+export PATH="/home/mvthexz/.cargo/bin:$PATH"
 
 #Intellij path
 export PATH="/home/mvthexz/idea-IU-231.8109.175/bin:$PATH"
@@ -15,8 +18,10 @@ export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/tools/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
-export PATH="$PATH:`yarn global bin`"
-export PATH="$PATH:/opt/yarn-[2.4.1]/bin"
+# export PATH="$PATH:`yarn global bin`"
+# export PATH="$PATH:/opt/yarn-[2.4.1]/bin"
+
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -123,10 +128,18 @@ alias gp='git push'
 
 alias gs='git status'
 
-source /home/mvthexz/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /home/mvthexz/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# FZF exports
+# fzf ctrl-r and alt-c behavior
+export FZF_DEFAULT_COMMAND="fd --hidden"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
