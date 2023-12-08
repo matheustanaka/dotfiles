@@ -18,11 +18,11 @@ disabled = true
 disabled = true
 
 [directory]
-read_only = "  "
+read_only = " 🔒"
 truncate_to_repo = false
 
 [docker_context]
-disabled = true
+format = 'via [🐋 $context](blue bold)'
 
 [dotnet]
 disabled = true
@@ -49,10 +49,10 @@ symbol = " "
 format = "[$ahead_behind$untracked$modified]($style) "
 
 [golang]
-disabled = true
+disabled = false
 
 [helm]
-disabled = true
+disabled = false
 
 [java]
 disabled = true
@@ -67,7 +67,7 @@ disabled = true
 disabled = true
 
 [kubernetes]
-disabled = true
+disabled = false
 
 [lua]
 disabled = true
@@ -79,7 +79,7 @@ disabled = true
 disabled = true
 
 [nodejs]
-disabled = true
+format = 'via [🤖 $version](bold green) '
 
 [ocaml]
 disabled = true
