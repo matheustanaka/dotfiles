@@ -2,23 +2,11 @@
 success_symbol = "[❯](purple)"
 
 [aws]
-disabled = true
-
-[cmake]
-disabled = true
+disabled = false
 
 [cmd_duration]
 min_time = 500
 format = "[$duration]($style) "
-
-[conda]
-disabled = true
-
-[crystal]
-disabled = true
-
-[dart]
-disabled = true
 
 [directory]
 read_only = " 🔒"
@@ -27,23 +15,11 @@ truncate_to_repo = false
 [docker_context]
 format = 'via [🐋 $context](blue bold)'
 
-[dotnet]
-disabled = true
-
 [elixir]
-disabled = true
-
-[elm]
-disabled = true
-
-[env_var]
-disabled = true
+disabled = false
 
 [erlang]
-disabled = true
-
-[gcloud]
-disabled = true
+disabled = false
 
 [git_branch]
 symbol = " "
@@ -58,80 +34,34 @@ disabled = false
 disabled = false
 
 [java]
-disabled = true
+disabled = false
 
 [jobs]
-disabled = true
-
-[julia]
-disabled = true
-
-[kotlin]
-disabled = true
+disabled = false
 
 [kubernetes]
 format = 'via [☸️ $context ](bold purple)'
 disabled = false
 
 [lua]
-disabled = true
-
-[nim]
-disabled = true
-
-[nix_shell]
-disabled = true
+format = 'via [🌕 $version](bold blue) '
+disabled = false
 
 [nodejs]
 format = 'via [🤖 $version](bold green) '
 
-[ocaml]
-disabled = true
-
-[openstack]
-disabled = true
-
-[package]
-disabled = true
-
-[perl]
-disabled = true
-
-[php]
-disabled = true
-
-[purescript]
-disabled = true
-
 [python]
-disabled = true
+disabled = false
 
 [ruby]
-disabled = true
+disabled = false
 
 [rust]
-disabled = true
-
-[scala]
-disabled = true
-
-[shlvl]
-disabled = true
-
-[singularity]
-disabled = true
-
-[swift]
-disabled = true
+disabled = false
 
 [terraform]
-disabled = true
+disabled = false
 
-[vagrant]
-disabled = true
-
-[zig]
-disabled = true
 
 [username]
 format = "[$user]($style)"
