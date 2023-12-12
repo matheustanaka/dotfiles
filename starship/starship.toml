@@ -1,3 +1,6 @@
+[character]
+success_symbol = "[❯](purple)"
+
 [aws]
 disabled = true
 
@@ -67,6 +70,7 @@ disabled = true
 disabled = true
 
 [kubernetes]
+format = 'via [☸️ $context ](bold purple)'
 disabled = false
 
 [lua]
