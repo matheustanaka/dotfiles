@@ -1,3 +1,9 @@
+format = """\
+  $directory\
+  $kubernetes\n\
+  $character\
+  """
+
 [character]
 success_symbol = "[❯](purple)"
 
@@ -40,7 +46,7 @@ disabled = false
 disabled = false
 
 [kubernetes]
-format = 'via [☸️ $context ](bold purple)'
+format = 'on [☸️ $context ](bold purple)'
 disabled = false
 
 [lua]
