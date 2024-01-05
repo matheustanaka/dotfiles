@@ -11,4 +11,3 @@ require "toggleterm-config"
 require "treesitter-config"
 require "whichkey"
 require "bufferline-config"
-

@@ -24,6 +24,11 @@ keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts) -- open/close
 -- Reamp telescope to find text with ctlr+f
 keymap("n", "<C-t>", ":Telescope live_grep <CR>", opts) -- Find text pattern in all files
 keymap("n", "<C-f>", ":lua require('telescope.builtin').find_files()<CR>", opts) -- find for files
+
+-- Split Windows 
+keymap("n", "<C-s>", ":split<CR><C-w>w", opts)
+keymap("n", "<C-v>", ":vsplit<CR><C-w>w", opts)
+
     -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts) -- left window
@@ -56,10 +61,6 @@ keymap("i", "kj", "<esc>", opts) -- Insert mode -> kj -> Normal mode
 -- stay in indent mode
 keymap("v", "<", "<gv", opts) -- Right Indentation
 keymap("v", ">", ">gv", opts) -- Left Indentation
-
--- move text up and down
-keymap("v", "<a-j>", ":m .+1<cr>==", opts)
-keymap("v", "<a-k>", ":m .-2<cr>==", opts)
 
 -- Visual Block --
 -- Move text up and down
