@@ -3,24 +3,13 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="home/mvthexz/.local/bin:$PATH"
+export PATH="/home/mvthexz/.local/bin:$PATH"
 
-# Rust
-export PATH="/home/mvthexz/.cargo/bin:$PATH"
-
-#Intellij path
-export PATH="/home/mvthexz/idea-IU-231.8109.175/bin:$PATH"
-#Java
-export JAVA_HOME=/usr/lib/jvm/java-12-openjdk-amd64
-export ANDROID_HOME=~/Android/Sdk
-export PATH="$PATH:$ANDROID_HOME/emulator"
-export PATH="$PATH:$ANDROID_HOME/tools"
-export PATH="$PATH:$ANDROID_HOME/tools/bin"
-export PATH="$PATH:$ANDROID_HOME/platform-tools"
-
-# export PATH="$PATH:`yarn global bin`"
-# export PATH="$PATH:/opt/yarn-[2.4.1]/bin"
-
+# Java exports Ericsson
+export JAVA_HOME="/home/mvthexz/dev/test/Ericsson/jdk-11.0.15"
+export JDK_HOME=${JAVA_HOME}
+export JRE_HOME=${JAVA_HOME}
+export PATH=${JAVA_HOME}/bin/:${JRE_HOME}:${PATH}
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -28,6 +17,8 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 eval "$(starship init zsh)"
+
+. "$HOME/.asdf/asdf.sh"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -94,6 +85,10 @@ plugins=(git zsh-autosuggestions)
 fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
 
 source "$ZSH/oh-my-zsh.sh"
+
+# Kubernetes autocompletion
+source <(kubectl completion zsh)
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -120,7 +115,7 @@ source "$ZSH/oh-my-zsh.sh"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias dev='cd Dev'
+alias dev='cd dev'
 
 alias gm='git commit -m'
 
@@ -128,18 +123,17 @@ alias gp='git push'
 
 alias gs='git status'
 
-# source /home/mvthexz/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+alias kubectl="minikube kubectl --"
 
-. $HOME/.asdf/asdf.sh
+alias k="minikube kubectl --"
 
-. $HOME/.asdf/completions/asdf.bash
+alias blog="${HOME}/dev/repos/matheustanaka"
+
+alias dotfiles='cd $HOME/dev/repos/dotfiles'
+
+alias neovim='cd $HOME/.config/nvim/'
+
+
+source /home/mvthexz/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# FZF exports
-# fzf ctrl-r and alt-c behavior
-export FZF_DEFAULT_COMMAND="fd --hidden"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
