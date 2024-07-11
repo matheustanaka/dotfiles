@@ -1,6 +1,5 @@
 local opt = vim.opt
 
-
 opt.autowrite = true -- Enable auto write
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
@@ -15,7 +14,8 @@ opt.ignorecase = true -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
 opt.incsearch = true
 opt.laststatus = 0
-opt.list = true -- Show some invisible characters (tabs...
+-- opt.list = true -- Show some invisible characters (tabs...
+-- opt.listchars = { tab = "»-", trail = "·", nbsp = "␣" }
 opt.mouse = "a" -- Enable mouse mode
 opt.number = true -- Print line number
 opt.pumblend = 10 -- Popup blend
@@ -25,7 +25,7 @@ opt.scrolloff = 5 -- Lines of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 4 -- Size of an indent
-opt.shortmess:append { W = true, I = true, c = true }
+opt.shortmess:append({ W = true, I = true, c = true })
 opt.showmode = false -- Dont show mode since we have a statusline
 opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
@@ -49,5 +49,6 @@ vim.g.markdown_recommended_style = 0
 
 -- vim.o.background = "dark" -- or "light" for light mode
 -- vim.cmd([[colorscheme rose-pine]])
+-- vim.cmd([[colorscheme catppuccin-mocha]])
 vim.cmd([[colorscheme carbonfox]])
-
+-- vim.cmd([[colorscheme eva01-LCL]])

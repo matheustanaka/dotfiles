@@ -97,6 +97,11 @@ nvim_tree.setup {
   filters = {
         dotfiles = false,
   },
+  git = {
+        enable = true,
+        ignore = false,
+        timeout = 500,
+    },
   renderer = {
     root_folder_modifier = ":t",
  -- These icons are visible when you install web-devicons

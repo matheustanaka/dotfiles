@@ -1,13 +1,13 @@
-require "keymaps"
-require "lazy-config"
-require "options"
-require "autopairs-config"
-require "hop-config"
-require "lualine-config"
-require "lsp-config"
-require "nvim-tree-config"
-require "telescope-config"
-require "toggleterm-config"
-require "treesitter-config"
-require "whichkey"
-require "bufferline-config"
+require("keymaps")
+require("lazy-config")
+require("options")
+require("autopairs-config")
+require("hop-config")
+require("lualine-config")
+-- require "lsp-config"
+require("nvim-tree-config")
+require("telescope-config")
+require("toggleterm-config")
+require("treesitter-config")
+require("whichkey")
+require("bufferline-config")
