@@ -1,0 +1,74 @@
+format = """\
+  $directory\
+  $git_branch\
+  $nodejs\
+  $lua\
+  $golang\
+  $python\
+  $docker_context\
+  $kubernetes\n\
+  $character\
+  """
+
+[character]
+success_symbol = "[❯](purple)"
+
+[aws]
+disabled = false
+
+[cmd_duration]
+min_time = 500
+format = "[$duration]($style) "
+
+[directory]
+read_only = " 🔒"
+truncate_to_repo = false
+
+[docker_context]
+format = 'on [🐋 $context](blue bold)'
+disabled = false
+
+[git_branch]
+symbol = " "
+
+[git_status]
+format = "[$ahead_behind$untracked$modified]($style) "
+
+[golang]
+disabled = false
+
+[helm]
+disabled = false
+
+[jobs]
+disabled = false
+
+[kubernetes]
+format = 'on [☸️ $context ](bold purple)'
+disabled = false
+
+[lua]
+format = 'via [🌕 $version](bold blue) '
+disabled = false
+
+[nodejs]
+format = 'via [🤖 $version](bold green) '
+disabled = false
+
+[python]
+disabled = false
+
+[terraform]
+disabled = false
+
+[username]
+format = "[$user]($style)"
+style_user = 'bold purple'
+show_always = true
+disabled = true
+
+[hostname]
+ssh_only= false
+ssh_symbol = "@"
+format = "$ssh_symbol[$hostname](bright-blue) "
+
