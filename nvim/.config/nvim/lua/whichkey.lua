@@ -1,135 +1,80 @@
--- Whichkey.lua 
+-- Whichkey.lua
+local wk = require("which-key")
 
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
-    return
-end
-
-local setup = {
-    plugins = {
-        marks = true, -- shows a list of your marks on ' and `
-        registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-        spelling = {
-            enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-            suggestions = 20, -- how many suggestions should be shown in the list?
-        },
-        -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-        -- No actual key bindings are created
-        presets = {
-            operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-            motions = true, -- adds help for motions
-            text_objects = true, -- help for text objects triggered after entering an operator
-            windows = true, -- default bindings on <c-w>
-            nav = true, -- misc bindings to work with windows
-            z = true, -- bindings for folds, spelling and others prefixed with z
-            g = true, -- bindings for prefixed with g
-        },
-    },
-    -- add operators that will trigger motion and text object completion
-    -- to enable all native operators, set the preset / operators plugin above
-    -- operators = { gc = "Comments" },
-    key_labels = {
-        -- override the label used to display some keys. It doesn't effect WK in any other way.
-        -- For example:
-        -- ["<space>"] = "SPC",
-        -- ["<cr>"] = "RET",
-        -- ["<tab>"] = "TAB",
-    },
-    icons = {
-        breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-        separator = "➜", -- symbol used between a key and it's label
-        group = "+", -- symbol prepended to a group
-    },
-    popup_mappings = {
-        scroll_down = "<c-d>", -- binding to scroll down inside the popup
-        scroll_up = "<c-u>", -- binding to scroll up inside the popup
-    },
-    window = {
-        border = "rounded", -- none, single, double, shadow
-        position = "bottom", -- bottom, top
-        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-        padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-        winblend = 0,
-    },
-    layout = {
-        height = { min = 4, max = 25 }, -- min and max height of the columns
-        width = { min = 20, max = 50 }, -- min and max width of the columns
-        spacing = 3, -- spacing between columns
-        align = "left", -- align columns left, center or right
-    },
-    ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
-    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-    show_help = true, -- show help message on the command line when the popup is visible
-    triggers = "auto", -- automatically setup triggers
-    -- triggers = {"<leader>"} -- or specify a list manually
-    triggers_blacklist = {
-        -- list of mode / prefixes that should never be hooked by WhichKey
-        -- this is mostly relevant for key maps that start with a native binding
-        -- most people should not need to change this
-        i = { "j", "k" },
-        v = { "j", "k" },
-    },
-}
-
-local opts = {
-    mode = "n", -- NORMAL mode
-    prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
-}
-
-local mappings = {
-    -- Added this line from the initial file
-    ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" }, -- File explorer
-    ["k"] = { "<cmd>bdelete<CR>", "Kill Buffer" },  -- Close current file
-    ["p"] = { "<cmd>Lazy<CR>", "Plugin Manager" }, -- Invoking plugin manager
-    ["q"] = { "<cmd>wqall!<CR>", "Quit" }, -- Quit Neovim after saving the file
-    ["w"] = { "<cmd>w!<CR>", "Save" }, -- Save current file
-
-    -- Language Support
-    l = {
-        name = "LSP",
-        i = { "<cmd>LspInfo<cr>", "Info" },
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-        s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-        S = {
-            "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-            "Workspace Symbols",
-        },
-    },
-
-    -- Telescope
-    f = {
-        name = "File Search",
-        c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-        f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Find files" },
-        t = { "<cmd>Telescope live_grep <cr>", "Find Text Pattern In All Files" },
-        r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    },
-
-    s = {
-        name = "Search",
-        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-        m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-        r = { "<cmd>Telescope registers<cr>", "Registers" },
-        k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-        c = { "<cmd>Telescope commands<cr>", "Commands" },
-    },
-        --Toggle Term
-    t = {
-        name = "Terminal",
-        n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" }, -- NodeJS Terminal
-        p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" }, -- Python Terminal
-        f = { "<cmd>ToggleTerm direction=float<cr>", "Float" }, -- Floating Terminal
-
-        -- Play with size according to your needs.
-        h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" }, -- Horizontal Terminal,
-        v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" }, -- Vertical Terminal
-    },
-
-}
-
-which_key.setup(setup)
-which_key.register(mappings, opts)
+wk.add({
+	--
+	-- Local Mappings -> How to find files, open plugin manager save and quit.
+	--
+	{ "<leader>p", "<cmd>Lazy<CR>", desc = "Plugin Manager", nowait = true, remap = false },
+	{ "<leader>q", "<cmd>wqall!<CR>", desc = "Quit", nowait = true, remap = false },
+	{ "<leader>w", "<cmd>w!<CR>", desc = "Save", nowait = true, remap = false },
+	{ "<leader>s", group = "Search", nowait = true, remap = false },
+	{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer", nowait = true, remap = false },
+	{ "<leader>f", group = "File Search", nowait = true, remap = false },
+	{ "<leader>k", "<cmd>bdelete<CR>", desc = "Kill Buffer", nowait = true, remap = false },
+	--
+	-- Telescope mappings
+	--
+	{ "<leader>fc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme", nowait = true, remap = false },
+	{
+		"<leader>ff",
+		"<cmd>lua require('telescope.builtin').find_files()<cr>",
+		desc = "Find files",
+		nowait = true,
+		remap = false,
+	},
+	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", nowait = true, remap = false },
+	{
+		"<leader>ft",
+		"<cmd>Telescope live_grep <cr>",
+		desc = "Find Text Pattern In All Files",
+		nowait = true,
+		remap = false,
+	},
+	{ "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands", nowait = true, remap = false },
+	{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Find Help", nowait = true, remap = false },
+	{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps", nowait = true, remap = false },
+	{ "<leader>sm", "<cmd>Telescope man_pages<cr>", desc = "Man Pages", nowait = true, remap = false },
+	{ "<leader>sr", "<cmd>Telescope registers<cr>", desc = "Registers", nowait = true, remap = false },
+	--
+	-- LSP mappings
+	--
+	{ "<leader>l", group = "LSP", nowait = true, remap = false },
+	{
+		"<leader>lS",
+		"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+		desc = "Workspace Symbols",
+		nowait = true,
+		remap = false,
+	},
+	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Info", nowait = true, remap = false },
+	{ "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename", nowait = true, remap = false },
+	{
+		"<leader>ls",
+		"<cmd>Telescope lsp_document_symbols<cr>",
+		desc = "Document Symbols",
+		nowait = true,
+		remap = false,
+	},
+	--
+	-- Terminal Integrated mappings
+	--
+	{ "<leader>t", group = "Terminal", nowait = true, remap = false },
+	{ "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float", nowait = true, remap = false },
+	{
+		"<leader>th",
+		"<cmd>ToggleTerm size=10 direction=horizontal<cr>",
+		desc = "Horizontal",
+		nowait = true,
+		remap = false,
+	},
+	{ "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>", desc = "Node", nowait = true, remap = false },
+	{ "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<cr>", desc = "Python", nowait = true, remap = false },
+	{
+		"<leader>tv",
+		"<cmd>ToggleTerm size=80 direction=vertical<cr>",
+		desc = "Vertical",
+		nowait = true,
+		remap = false,
+	},
+})
