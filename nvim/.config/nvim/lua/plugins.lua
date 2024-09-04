@@ -237,6 +237,7 @@ return {
 				"docker_compose_language_service",
 				"dockerls",
 				"pyright",
+                "tflint"
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -278,6 +279,9 @@ return {
 				-- is found.
 				javascript = { { "prettierd", "prettier" } },
 				typescript = { { "prettierd", "prettier" } },
+                terraform = { "terraform_fmt" },
+                tf = { "terraform_fmt" },
+                ["terraform-vars"] = { "terraform_fmt" },
 			},
 		},
 	},
