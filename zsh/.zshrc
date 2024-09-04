@@ -40,6 +40,8 @@ alias notes="cd ${HOME}/Documents/Obsidian-notes/notes"
 
 alias v="nvim"
 
+alias lz="lazygit"
+
 
 source /home/mvthexz/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
