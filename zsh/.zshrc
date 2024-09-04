@@ -38,6 +38,8 @@ alias neovim="cd ${HOME}/.config/nvim/"
 
 alias notes="cd ${HOME}/Documents/Obsidian-notes/notes"
 
+alias v="nvim"
+
 
 source /home/mvthexz/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
