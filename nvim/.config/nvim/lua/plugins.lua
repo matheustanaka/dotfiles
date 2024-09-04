@@ -237,7 +237,7 @@ return {
 				"docker_compose_language_service",
 				"dockerls",
 				"pyright",
-                "tflint"
+				"tflint",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -279,9 +279,9 @@ return {
 				-- is found.
 				javascript = { { "prettierd", "prettier" } },
 				typescript = { { "prettierd", "prettier" } },
-                terraform = { "terraform_fmt" },
-                tf = { "terraform_fmt" },
-                ["terraform-vars"] = { "terraform_fmt" },
+				terraform = { "terraform_fmt" },
+				tf = { "terraform_fmt" },
+				["terraform-vars"] = { "terraform_fmt" },
 			},
 		},
 	},
@@ -454,5 +454,24 @@ return {
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" },
+	},
+
+	-- Tmux navigator
+	{
+		"christoomey/vim-tmux-navigator",
+		cmd = {
+			"TmuxNavigateLeft",
+			"TmuxNavigateDown",
+			"TmuxNavigateUp",
+			"TmuxNavigateRight",
+			"TmuxNavigatePrevious",
+		},
+		keys = {
+			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+		},
 	},
 }
