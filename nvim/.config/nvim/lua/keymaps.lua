@@ -31,10 +31,10 @@ keymap("n", "<C-v>", ":vsplit<CR><C-w>w", opts)
 
 -- Normal --
 -- Better window navigation
--- keymap("n", "<C-h>", "<C-w>h", opts) -- left window
--- keymap("n", "<C-k>", "<C-w>k", opts) -- up window
--- keymap("n", "<C-j>", "<C-w>j", opts) -- down window
--- keymap("n", "<C-l>", "<C-w>l", opts) -- right window
+keymap("n", "<C-h>", "<C-w>h", opts) -- left window
+keymap("n", "<C-k>", "<C-w>k", opts) -- up window
+keymap("n", "<C-j>", "<C-w>j", opts) -- down window
+keymap("n", "<C-l>", "<C-w>l", opts) -- right window
 
 -- Resize with arrows when using multiple windows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -46,6 +46,7 @@ keymap("n", "<c-left>", ":vertical resize +2<cr>", opts)
 keymap("n", "<tab>", ":bnext<cr>", opts) -- Next Tab
 keymap("n", "<s-tab>", ":bprevious<cr>", opts) -- Previous tab
 keymap("n", "<leader>h", ":nohlsearch<cr>", opts) -- No highlight search
+keymap("n", "<leader>k", "<cmd>bdelete<CR>", opts) -- Kill bufer with ,+k
 
 -- move text up and down
 keymap("n", "<a-j>", "<esc>:m .+1<cr>==gi", opts) -- Alt-j
