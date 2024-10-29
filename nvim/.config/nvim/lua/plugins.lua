@@ -127,6 +127,11 @@ return {
 					--  Symbols are things like variables, functions, types, etc.
 					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 
+					--- Find recent files
+					map("<leader>s.", require("telescope.builtin").oldfiles, '[S]earch Recent Files ("." for repeat)')
+					-- Find existing buffers
+					map("<leader><leader>", require("telescope.builtin").buffers, "[ ] Find existing buffers")
+
 					-- Fuzzy find all the symbols in your current workspace.
 					--  Similar to document symbols, except searches over your entire project.
 					map(
@@ -198,9 +203,12 @@ return {
 				--    https://github.com/pmizio/typescript-tools.nvim
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
-				tsserver = {},
+				ts_ls = {},
+				--tsserver = {},
 				--
-				terraformls = {},
+				terraformls = {
+					filetypes = { "tf" },
+				},
 
 				lua_ls = {
 					-- cmd = {...},
@@ -232,7 +240,9 @@ return {
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 				"gopls",
-				"tsserver",
+				-- "tsserver",
+				"ts_ls",
+				"terraformls",
 				"eslint",
 				"cssls",
 				"docker_compose_language_service",

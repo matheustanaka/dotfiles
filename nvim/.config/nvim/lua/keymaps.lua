@@ -1,3 +1,9 @@
+vim.filetype.add({
+	extension = {
+		tf = "terraform",
+	},
+})
+
 local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
@@ -18,6 +24,11 @@ vim.g.maplocalleader = ","
 --   term_mode = "t",
 --   command_mode = "c",
 --
+-- Open html on browser
+-- keymap("n", "<F12>c", ":silent !chromium-browser %<CR>", opts)
+-- keymap("n", "<F12>f", ":silent !firefox %<CR>", opts)
+keymap("n", "<F12>", ":silent !xdg-open %<CR>", opts)
+
 -- Remap nvimTree to open the Tree with ctrl+n
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts) -- open/close
 
@@ -93,3 +104,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- unhighlight in normal mode with ESC
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- nnoremap <F12>c :exe ':silent !chromium-browser %'<CR>

@@ -3,7 +3,7 @@
 local configs = require("nvim-treesitter.configs")
 configs.setup({
 	-- Add a language of your choice
-	ensure_installed = { "python", "lua", "javascript", "typescript", "hcl", "terraform", "go", "html", "css", "json" },
+	ensure_installed = { "python", "lua", "javascript", "typescript", "terraform", "go", "html", "css", "json" },
 	sync_install = false,
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {
