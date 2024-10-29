@@ -42,6 +42,8 @@ alias v="nvim"
 
 alias lz="lazygit"
 
+alias tf="terraform"
+
 
 source /home/mvthexz/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -56,5 +58,5 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-# export PATH="/home/mvthexz/.rd/bin:$PATH"
+export PATH="/home/mvthexz/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
