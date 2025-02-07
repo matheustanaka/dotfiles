@@ -18,7 +18,9 @@ source "$ZSH/oh-my-zsh.sh"
 # Kubernetes autocompletion
 # source <(kubectl completion zsh)
 
-alias dev="cd ${HOME}/dev/repos"
+alias win="cd '/mnt/c/Users/enaamtt/OneDrive - Ericsson/Downloads'"
+alias work="cd ${HOME}/dev/work"
+alias my="cd ${HOME}/dev/personal"
 
 alias gm='git commit -m'
 
@@ -44,8 +46,17 @@ alias lz="lazygit"
 
 alias tf="terraform"
 
+alias tma="tmux attach -t"
 
-source /home/mvthexz/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Ericsson Alias
+alias eb23='ssh -o HostKeyAlgorithms=+ssh-rsa -o KexAlgorithms=+diffie-hellman-group14-sha1,diffie-hellman-group1-sha1 -o ServerAliveInterval=240 -o ServerAliveCountMax=2 'gu=T3650422@T3650422@ocilnx0549'@10.168.16.84'
+alias eb23FQA='ssh -o HostKeyAlgorithms=+ssh-rsa -o KexAlgorithms=+diffie-hellman-group14-sha1,diffie-hellman-group1-sha1 -o ServerAliveInterval=240 -o ServerAliveCountMax=2 'gu=T3650422@sfpp@ocilnx0549'@10.168.16.84'
+alias forgerock='ssh -o HostKeyAlgorithms=+ssh-rsa -o KexAlgorithms=+diffie-hellman-group14-sha1,diffie-hellman-group1-sha1 'gu=t3650422@sfpp@ocilnx0599'@10.168.16.84'
+alias forgerockfqa='ssh -o HostKeyAlgorithms=+ssh-rsa -o KexAlgorithms=+diffie-hellman-group14-sha1,diffie-hellman-group1-sha1 'gu=t3650422@sfpp@ocilnx0602'@10.114.7.67'
+
+alias onedrive='cd /mnt/c/Users/enaamtt/OneDrive - Ericsson/Downloads'
+
+source ${HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
@@ -60,3 +71,6 @@ fi
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/home/mvthexz/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+#
+# Kubectl autocompletion
+source <(kubectl completion zsh)

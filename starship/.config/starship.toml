@@ -11,7 +11,7 @@ format = """\
   """
 
 [character]
-success_symbol = "[❯](purple)"
+success_symbol = "[❯](purple bold)"
 
 [aws]
 disabled = false
@@ -44,7 +44,9 @@ disabled = false
 disabled = false
 
 [kubernetes]
-format = 'on [☸️ $context ](bold purple)'
+#format = 'on [☸️ $context ](bold purple)'
+#☸️ 
+format = 'on [☸️ ($cluster in )\($namespace\)](white bold) '
 disabled = false
 
 [lua]
