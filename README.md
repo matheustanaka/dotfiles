@@ -9,3 +9,4 @@ My Dev enviroment.
 - [nvim](https://neovim.io/): Code editor.
 - [tmux](https://github.com/tmux/tmux/wiki): windows manager.
 - [starship](https://starship.rs/): shell prompt.
+a
