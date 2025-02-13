@@ -19,3 +19,7 @@ function k8s_context() {
 export PS1="\[\033[1;34m\]\w\[\033[1;37m\] on ☸️ \[\033[1;32m\]\$(k8s_context)\[\033[0m\]\n\[\033[1;34m\]❯\[\033[1;37m\] "
 
 . "$HOME/.cargo/env"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/mvthexz/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
