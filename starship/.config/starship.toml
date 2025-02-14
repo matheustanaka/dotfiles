@@ -44,8 +44,13 @@ disabled = false
 disabled = false
 
 [kubernetes]
-format = 'on [☸️ $context ](bold purple)'
+format = 'on [☸️ ($context in )\($namespace\) ](bold white)'
 disabled = false
+
+# [kubernetes]
+# #format = 'on [☸️ $context ](bold purple)'
+# #☸️ 
+# format = 'on [☸️ ($context in )\($namespace\)](white bold) '
 
 [lua]
 format = 'via [🌕 $version](bold blue) '
