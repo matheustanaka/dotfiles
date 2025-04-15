@@ -1,9 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+# Setup Rust Cargo
+. "$HOME/.cargo/env" 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.rd/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.rd/bin:$PATH:/usr/local/go/bin"
 
 eval "$(starship init zsh)"
 
@@ -32,7 +33,7 @@ alias k="kubectl"
 
 alias blog="${HOME}/dev/repos/matheustanaka"
 
-alias dotfiles="cd ${HOME}/dev/repos/dotfiles"
+alias dotfiles="cd ${HOME}/dotfiles"
 
 alias neovim="cd ${HOME}/.config/nvim/"
 
