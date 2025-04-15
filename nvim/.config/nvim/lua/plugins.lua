@@ -32,10 +32,10 @@ return {
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
-		opts = {}, -- this is equalent to setup({}) function    -- Colorscheme
+		opts = {}, -- this is equalent to setup({}) function
 	},
 	-- Colorscheme theme
-	-- { "hachy/eva01.vim", lazy = false, priority = 1000 },
+	-- I was using this one
 	{
 		"EdenEast/nightfox.nvim",
 	},
@@ -301,8 +301,8 @@ return {
 				--
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
-				javascript = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
+				javascript = { "prettierd", "prettier", stop_after_first = true },
+				typescript = { "prettierd", "prettier", stop_after_first = true },
 				terraform = { "terraform_fmt" },
 				tf = { "terraform_fmt" },
 				["terraform-vars"] = { "terraform_fmt" },
@@ -330,12 +330,12 @@ return {
 					-- `friendly-snippets` contains a variety of premade snippets.
 					--    See the README about individual language/framework/plugin snippets:
 					--    https://github.com/rafamadriz/friendly-snippets
-					-- {
-					--   'rafamadriz/friendly-snippets',
-					--   config = function()
-					--     require('luasnip.loaders.from_vscode').lazy_load()
-					--   end,
-					-- },
+					{
+						"rafamadriz/friendly-snippets",
+						config = function()
+							require("luasnip.loaders.from_vscode").lazy_load()
+						end,
+					},
 				},
 			},
 			"saadparwaiz1/cmp_luasnip",

@@ -47,8 +47,9 @@ opt.wrap = false -- Disable line wrap
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
--- vim.o.background = "dark" -- or "light" for light mode
+vim.o.background = "dark" -- or "dark" for light mode
+-- vim.cmd([[colorscheme gruvbox]])
 -- vim.cmd([[colorscheme rose-pine]])
 -- vim.cmd([[colorscheme catppuccin-mocha]])
-vim.cmd([[colorscheme carbonfox]])
+vim.cmd([[colorscheme carbonfox]]) -- I was using this one
 -- vim.cmd([[colorscheme eva01-LCL]])
