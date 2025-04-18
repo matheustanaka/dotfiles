@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Setup Rust Cargo
-. "$HOME/.cargo/env" 
+#. "$HOME/.cargo/env" 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.rd/bin:$PATH:/usr/local/go/bin"
@@ -46,7 +46,7 @@ alias lz="lazygit"
 alias tf="terraform"
 
 
-source /home/mvthexz/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "${HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
