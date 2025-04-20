@@ -19,6 +19,8 @@ source "$ZSH/oh-my-zsh.sh"
 # Kubernetes autocompletion
 # source <(kubectl completion zsh)
 
+alias cl="clear"
+
 alias dev="cd ${HOME}/dev/repos"
 
 alias gm='git commit -m'
