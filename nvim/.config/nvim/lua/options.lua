@@ -51,5 +51,5 @@ vim.o.background = "dark" -- or "dark" for light mode
 -- vim.cmd([[colorscheme gruvbox]])
 -- vim.cmd([[colorscheme rose-pine]])
 -- vim.cmd([[colorscheme catppuccin-mocha]])
-vim.cmd([[colorscheme carbonfox]]) -- I was using this one
+-- vim.cmd([[colorscheme carbonfox]]) -- I was using this one
 -- vim.cmd([[colorscheme eva01-LCL]])
