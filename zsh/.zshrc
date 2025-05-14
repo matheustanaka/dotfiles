@@ -47,6 +47,10 @@ alias lz="lazygit"
 
 alias tf="terraform"
 
+alias dcu='docker compose up'
+
+alias dcd='docker compose down'
+
 
 source "${HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
