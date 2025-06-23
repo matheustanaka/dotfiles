@@ -1,0 +1,94 @@
+{
+    "amazonQ.suppressPrompts": {
+        "amazonQChatDisclaimer": true,
+        "amazonQChatPairProgramming": true
+    },
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "workbench.colorTheme": "Min Dark",
+    "workbench.iconTheme": "symbols",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.8,
+    "editor.rulers": [80, 120],
+    "editor.tabSize": 4,
+    "editor.renderLineHighlight": "gutter",
+    "editor.fontLigatures": true,
+    "workbench.editor.labelFormat": "short", // Remove the path from the file name
+    "explorer.compactFolders": false, // Remove folders compact
+    "breadcrumbs.enabled": false, // Remove worktree buttons from the left
+    "editor.minimap.enabled": false,
+    "editor.scrollbar.horizontal": "visible",
+    "editor.scrollbar.vertical": "visible",
+    "workbench.statusBar.visible": true,
+    "workbench.layoutControl.enabled": false,
+    "window.titleBarStyle": "custom",
+    "workbench.activityBar.location": "top",
+    // My VIM bindings
+    "editor.lineNumbers": "relative",
+    "vim.leader": ",",
+    "vim.hlsearch": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        { "before": ["<leader>", "e"], "commands": ["workbench.action.toggleSidebarVisibility"] },
+        { "before": ["<leader>", "E"], "commands": ["workbench.files.action.focusFilesExplorer"]},
+        // NAVIGATION
+        // switch b/w buffers with Shift + H and Shift + L
+        // { "before": ["<S-h>"], "commands": [":bprevious"] },
+        // { "before": ["<S-l>"], "commands": [":bnext"] },
+        // I'm using shift tab and tab on my vim bindings
+        { "before": ["<S-tab>"], "commands": [":bprevious"] },
+        { "before": ["<tab>"], "commands": [":bnext"] },
+
+        // splits
+        { "before": ["leader", "v"], "commands": [":vsplit"] },
+        { "before": ["leader", "s"], "commands": [":split"] },
+
+        // panes - CTRL + JKLH
+        {
+        "before": ["<C-h>"],
+        "commands": ["workbench.action.focusLeftGroup"]
+        },
+        {
+        "before": ["<C-j>"],
+        "commands": ["workbench.action.focusBelowGroup"]
+        },
+        {
+        "before": ["<C-k>"],
+        "commands": ["workbench.action.focusAboveGroup"]
+        },
+        {
+        "before": ["<C-l>"],
+        "commands": ["workbench.action.focusRightGroup"]
+        },
+        // NICE TO HAVE
+        { "before": ["leader", "w"], "commands": [":w!"] },
+        { "before": ["leader", "q"], "commands": [":q!"] },
+        { "before": ["leader", "x"], "commands": [":x!"] },
+        {
+        "before": ["[", "d"],
+        "commands": ["editor.action.marker.prev"]
+        },
+        {
+        "before": ["]", "d"],
+        "commands": ["editor.action.marker.next"]
+        },
+        {
+        "before": ["<leader>", "c", "a"],
+        "commands": ["editor.action.quickFix"]
+        },
+        { "before": ["leader", "f"], "commands": ["workbench.action.quickOpen"] },
+        { "before": ["leader", "p"], "commands": ["editor.action.formatDocument"] },
+        {
+        "before": ["g", "h"],
+        "commands": ["editor.action.showDefinitionPreviewHover"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+    // Stay in visual mode while indenting
+    { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+    { "before": [">"], "commands": ["editor.action.indentLines"] },
+    // Move selected lines while staying in visual mode
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+    // toggle comment selection
+    { "before": ["g", "c"], "commands": ["editor.action.commentLine"] }
+  ],
+}
