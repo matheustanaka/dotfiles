@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.rd/bin:$PATH"
+export KUBECONFIG=$HOME/.kube/config
 
 eval "$(starship init zsh)"
 
@@ -47,6 +48,16 @@ alias lz="lazygit"
 alias tf="terraform"
 
 alias tma="tmux attach -t"
+
+# run tool for ESOA deployment and upgrade
+alias run_tool='docker run -it --rm --net=host --env EDITOR=micro --env HOME=$HOME --env USER --env KUBECONFIG  \
+    --volume $HOME:$HOME -v /etc/ssl:/etc/ssl:ro -v /etc/docker:/etc/docker:ro \
+    -v /usr/bin/eke:/usr/bin/eke:ro \
+    -v /usr/share/bash-completion:/usr/share/bash-completion:ro \
+    -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group \
+    -v /usr/bin/docker:/usr/bin/docker -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /tmp:/tmp --workdir $PWD --user $(id -u):$(for x in $(id -G); do printf " --group-add %s" "$x";done) \
+    armdocker.rnd.ericsson.se/proj-bam-drop/tools/helmfile-tools:latest'
 
 # Ericsson Alias
 alias eb23='ssh -o HostKeyAlgorithms=+ssh-rsa -o KexAlgorithms=+diffie-hellman-group14-sha1,diffie-hellman-group1-sha1 -o ServerAliveInterval=240 -o ServerAliveCountMax=2 'gu=T3650422@T3650422@ocilnx0549'@10.168.16.84'
