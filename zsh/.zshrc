@@ -17,7 +17,7 @@ fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
 source "$ZSH/oh-my-zsh.sh"
 
 # Kubernetes autocompletion
-# source <(kubectl completion zsh)
+source <(kubectl completion zsh)
 
 alias cl="clear"
 
@@ -28,8 +28,6 @@ alias gm='git commit -m'
 alias gp='git push'
 
 alias gs='git status'
-
-# alias k="minikube kubectl --"
 
 alias k="kubectl"
 
@@ -64,6 +62,7 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach -t main 
 fi
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/home/mvthexz/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
