@@ -56,7 +56,7 @@ return {
 		opts = ...,
 		config = function()
 			-- local bg0 = "#1b1b1b"
-			local bg0 = "##1d2021"
+			local bg0 = "#1d2021"
 			require("gruvbox").setup({
 				contrast = "hard",
 				overrides = {
