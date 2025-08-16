@@ -6,6 +6,9 @@ export ZSH=$HOME/.oh-my-zsh
 export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.rd/bin:$PATH"
 export KUBECONFIG=$HOME/.kube/config
 
+export PATH=$HOME/bin:/usr/local/go/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
+
 eval "$(starship init zsh)"
 
 . "$HOME/.asdf/asdf.sh"
