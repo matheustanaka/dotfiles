@@ -1,6 +1,14 @@
 -- plugins.lua
 
 return {
+	-- For `plugins.lua` users.
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false,
+
+		-- Completion for `blink.cmp`
+		-- dependencies = { "saghen/blink.cmp" },
+	},
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
 		opts = {
@@ -74,12 +82,6 @@ return {
 			})
 		end,
 	},
-	-- Hop (Better Navigation)
-	{
-		"phaazon/hop.nvim",
-		lazy = true,
-	},
-
 	-- Lualine
 	{
 		"nvim-lualine/lualine.nvim",
