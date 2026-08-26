@@ -5,6 +5,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.rd/bin:$PATH:/usr/local/go/bin"
+export KUBE_EDITOR=vim
+export TERM=xterm-256color
+
 
 eval "$(starship init zsh)"
 
@@ -57,12 +60,11 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # Automatically start tmux in new terminals if not already running
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     # Create a new session called as default
-    # tmux attach -t default || tmux new -s default
+    tmux attach -t work || tmux new -s work
     # I wont use it, because I create a systemd to create a session called as main every time that I start my machine
-    tmux attach -t main 
+    # tmux attach -t main 
 fi
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
-
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
