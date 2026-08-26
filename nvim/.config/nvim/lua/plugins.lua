@@ -61,7 +61,6 @@ return {
 		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
 		-- config = true,
-		opts = ...,
 		config = function()
 			-- local bg0 = "#1b1b1b"
 			local bg0 = "#1d2021"
@@ -248,7 +247,7 @@ return {
 				--tsserver = {},
 				--
 				terraformls = {
-					filetypes = { "tf" },
+					filetypes = { "terraform", "terraform-vars" },
 				},
 
 				lua_ls = {
@@ -289,8 +288,12 @@ return {
 				"docker_compose_language_service",
 				"dockerls",
 				"pyright",
-				"tflint",
-			})
+					"tflint",
+					"black",
+					"isort",
+					"prettier",
+					"prettierd",
+				})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 			require("mason-lspconfig").setup({

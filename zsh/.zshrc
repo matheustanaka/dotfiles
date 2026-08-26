@@ -1,26 +1,20 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# Setup Rust Cargo
-#. "$HOME/.cargo/env" 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.rd/bin:$PATH:/usr/local/go/bin"
-export KUBE_EDITOR=vim
-export TERM=xterm-256color
-
-
-eval "$(starship init zsh)"
-
-. "$HOME/.asdf/asdf.sh"
+export ZSH="$HOME/.oh-my-zsh"
+export ASDF_DATA_DIR="${ASDF_DATA_DIR:-$HOME/.asdf}"
+export PATH="$HOME/.local/bin:$ASDF_DATA_DIR/shims:$HOME/go/bin:$HOME/.rd/bin:/usr/local/go/bin:$PATH"
+export KUBE_EDITOR=nvim
 
 plugins=(git zsh-autosuggestions)
 
-fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
+ZSH_COMPLETIONS_DIR="${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-completions/src"
+[[ -d "$ZSH_COMPLETIONS_DIR" ]] && fpath=("$ZSH_COMPLETIONS_DIR" $fpath)
 
-source "$ZSH/oh-my-zsh.sh"
+[[ -r "$ZSH/oh-my-zsh.sh" ]] && source "$ZSH/oh-my-zsh.sh"
 
-# Kubernetes autocompletion
-source <(kubectl completion zsh)
+if command -v kubectl >/dev/null 2>&1; then
+	source <(kubectl completion zsh)
+fi
+
+command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 
 alias cl="clear"
 
@@ -34,7 +28,7 @@ alias gs='git status'
 
 alias k="kubectl"
 
-alias blog="${HOME}/dev/repos/matheustanaka"
+alias blog="cd ${HOME}/dev/repos/matheustanaka"
 
 alias dotfiles="cd ${HOME}/dotfiles"
 
@@ -53,8 +47,6 @@ alias dcu='docker compose up'
 alias dcd='docker compose down'
 
 
-source "${HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # Automatically start tmux in new terminals if not already running
@@ -65,6 +57,8 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     # tmux attach -t main 
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[[ -r "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+
+# This plugin must be sourced after other ZLE widgets are created.
+ZSH_HIGHLIGHT_FILE="${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[[ -r "$ZSH_HIGHLIGHT_FILE" ]] && source "$ZSH_HIGHLIGHT_FILE"

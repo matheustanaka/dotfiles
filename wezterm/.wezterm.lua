@@ -13,7 +13,7 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.font = wezterm.font("Jet Brains Mono Nerd Font")
+config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 15.0
 config.color_scheme = "carbonfox"
 config.enable_tab_bar = false

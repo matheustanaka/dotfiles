@@ -1,0 +1,8 @@
+.config/alacritty.toml
+.tool-versions
+.bashrc
+.config/nvim
+.config/starship.toml
+.tmux.conf
+.wezterm.lua
+.zshrc

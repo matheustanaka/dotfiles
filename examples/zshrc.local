@@ -1,0 +1,5 @@
+# Machine-specific settings belong here, outside version control.
+# This file can be copied to ~/.zshrc.local.
+
+# export AWS_PROFILE="personal"
+# export PATH="$HOME/some-machine-only-tool/bin:$PATH"

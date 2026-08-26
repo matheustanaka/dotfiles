@@ -6,10 +6,10 @@ wk.add({
 	-- Local Mappings -> How to find files, open plugin manager save and quit.
 	--
 	{ "<leader>p", "<cmd>Lazy<CR>", desc = "Plugin Manager", nowait = true, remap = false },
-	{ "<leader>q", "<cmd>wqall!<CR>", desc = "Quit", nowait = true, remap = false },
+	{ "<leader>x", "<cmd>wqall<CR>", desc = "Save and quit", nowait = true, remap = false },
 	{ "<leader>w", "<cmd>w!<CR>", desc = "Save", nowait = true, remap = false },
 	{ "<leader>s", group = "Search", nowait = true, remap = false },
-	{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer", nowait = true, remap = false },
+	{ "<leader>fe", "<cmd>NvimTreeToggle<cr>", desc = "Explorer", nowait = true, remap = false },
 	{ "<leader>f", group = "File Search", nowait = true, remap = false },
 	{ "<leader>k", "<cmd>bdelete<CR>", desc = "Kill Buffer", nowait = true, remap = false },
 	--

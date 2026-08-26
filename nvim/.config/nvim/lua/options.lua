@@ -13,7 +13,7 @@ opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
 opt.incsearch = true
-opt.laststatus = 0
+opt.laststatus = 2
 -- opt.list = true -- Show some invisible characters (tabs...
 -- opt.listchars = { tab = "»-", trail = "·", nbsp = "␣" }
 opt.mouse = "a" -- Enable mouse mode

@@ -1,0 +1,6 @@
+nodejs https://github.com/asdf-vm/asdf-nodejs.git
+python https://github.com/asdf-community/asdf-python.git
+golang https://github.com/asdf-community/asdf-golang.git
+terraform https://github.com/asdf-community/asdf-hashicorp.git
+kubectl https://github.com/asdf-community/asdf-kubectl.git
+lazygit https://github.com/nklmilojevic/asdf-lazygit.git
